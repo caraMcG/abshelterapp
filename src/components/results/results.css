@@ -1,0 +1,68 @@
+.dogResults{
+    display:flex; 
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0 40px 20px 40px;  
+}
+
+.dogItem{
+    display:flex;
+    flex-flow: column;
+    border: 1px #ffffffa6 solid;
+    background-color: rgb(232,232,232);
+    justify-content: center;
+    border-radius: 5%;
+    box-shadow: 0 0 0 0.09px #639aa3;
+}
+
+.dogItem:hover{
+    /* box-shadow: 8px 10px rgb(76, 130, 141); */
+    box-shadow: 8px 10px 0 0.09px #639aa3;
+    transition: all 600ms cubic-bezier(0.57, 2.2, 0.26, 0.99);
+    transform: scale(1.02);
+}
+
+.dogItem_topContainer{
+    display:flex;
+    flex-flow: column;
+    
+}
+
+.dogImageContainer{
+    padding: 0 20px 20px 20px;
+    flex: 1; 
+}
+
+.dogItem_pin{
+    align-self: flex-end;
+    padding: 10px 10px 10px 10px;
+}
+
+.dogItem_pin:hover{
+    /* style={{color: "black" }} */
+    color:blue;
+}
+
+.dogImage{
+    /* width: 200px;
+    height:auto; */
+    width: auto;
+    height: 200px;
+    border-radius: 5%;
+  }
+
+.dogInfo{
+    align-self: center;
+    padding-bottom: 20px;
+}
+
+.dogInfo a{
+    color: var(--color-footer);
+}
+
+.dogInfo a:hover{
+
+    font-weight: bold;
+}
+  
