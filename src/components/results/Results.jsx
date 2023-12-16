@@ -26,16 +26,17 @@ const Results = (props) => {
  
   function handlePinClick(i){
      
-        setPins([...pins, results[i.index]]);
-        console.log(pins.length +1);
-        console.log(Object.keys(pins).length + 1);
+        setPins(results[i.index]);
+        // setPins([...pins, results[i.index]]);
+        // console.log(pins.length +1);
+        // console.log(Object.keys(pins).length + 1);
 
     }
 
   return (
   <>
   <div className="dogPinned">
-    { Object.keys(pins).length != 0  ?  < Pins save={pins} />
+    { Object.keys(pins).length != 0  ?  < Pins newPin={pins} />
       : null
     }
    
