@@ -1,31 +1,61 @@
 .pinResults{
-
+    display:flex; 
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding-bottom: 2rem;
 }
 
+.pinTitle{
+    color:  #f95959;
+    padding-bottom: 2rem;
+}
 
 .pinItem{
-
+    display:flex;
+    flex-flow: column;
+    border: 1px #ffffffa6 solid;
+    background-color: rgb(232,232,232);
+    justify-content: center;
+    border-radius: 5%;
 }
 
 
 .pinItem_topContainer{
-
+    display:flex;
+    flex-flow: column;
 }
 
-
 .pinImageContainer{
-
+    
+    padding: 0 20px 20px 20px;
+    flex: 1; 
 }
 
 
 .pinImage{
     width: auto;
-    height: 200px;
+    height: 120px;
     border-radius: 5%;
 }
 
+.pinItem_pin{
+    align-self: flex-end;
+    padding: 10px 10px 10px 10px;
+ 
+}
+
+.pinItem_pin:hover{
+    color: red;
+    cursor: pointer;
+}
 
 .pinInfo{
+    align-self: center;
+    padding-bottom: 20px;
 
+}
 
+.dogPinned{
+    padding-bottom: 2rem;
 }

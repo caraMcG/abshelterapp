@@ -7,8 +7,9 @@
 
 body{
   /* background-color: var(--color-footer); */
-  background-color: rgb(119,177,186);
-  margin: 4rem  3rem 3rem 3rem;
+  /* background-color: rgb(119,177,186); */
+  background-color: #233142;
+  margin: 0  3rem 3rem 3rem;
   overflow-x: hidden;
 }
 
@@ -21,19 +22,41 @@ body{
 .App h1{
   padding-top: 50px;
   font-size:100px;
-  color: var(--color-footer);
+  /* color: var(--color-footer); */
+  /* color: #455d7a; */
+  color: rgb(232,232,232);
 }
 
-.App h6, .App h6 a{
-  color: var(--color-footer);
-  font-weight: 400;
-  font-size:14px;
+.App h4, .App h4 a{
+  /* color: var(--color-footer); */
+  color: #455d7a;
+  font-weight: 500;
+  padding-bottom: 5rem;
+  /* font-size:14px; */
 }
 
-.App h6 a:hover{
+.App h4 a:hover{
   font-weight: bold;
 }
 
+
+/* DROPDOWN STYLES */
 .dropdown{
-  padding: 50px;
+  /* padding: 50px; */
+  padding-bottom: 5rem;
 }
+
+.shelterSelector{
+  border: 1px solid #e2eded;
+  border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+  position: relative;
+  padding: 12px 14px;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.shelterSelector:focus{
+  outline: 2px solid #f95959;
+}
+

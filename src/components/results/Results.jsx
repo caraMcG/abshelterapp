@@ -3,66 +3,88 @@ import { useState, useEffect } from 'react';
 import './results.css'; 
 import Pins from '../pins/Pins';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
+import { faThumbtack, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 
 const Results = (props) => {
   const [results, setResults] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const [pins, setPins] = useState([]);
-  const lastItem = results.length;
-
+  const [loaded, setLoaded] = useState(false);
+  const lastItem = filtered.length;
 
   useEffect(() => {
     
     const endpoint = props.endpoint;
 
-    (async () => {
-        const data = await fetch("https://abshelterapi.onrender.com/"+ endpoint, {credentials: "omit"})
-          .then(res => res.json())
-          setResults(data)
-    })()
-  }, [props]);
+    if(!loaded){
 
+      (async () => {
+        const data = await fetch("https://abshelterapi.onrender.com/dogs", {credentials: "omit"})
+          .then(res => res.json())
+            setResults(data);
+            setLoaded(true);
+            console.log("Data loaded");
+
+            if(endpoint === 'dogs'){
+              setFiltered(data);
+            }
+            else{
+              console.log("Data filtered");
+              setFiltered(data.filter((profile) => profile.shelterName.includes(endpoint))); 
+            }
+           
+
+      })()   
+       
+    }
+    else{
+      if(endpoint === 'dogs'){
+        console.log("after loading, all above");
+        setFiltered(results);
+      }
+      else{
+        setFiltered(results.filter((profile) => profile.shelterName.includes(endpoint)));
+      }
+    } 
+  }, [props]);
  
   function handlePinClick(i){
-     
-        setPins(results[i.index]);
-        // setPins([...pins, results[i.index]]);
-        // console.log(pins.length +1);
-        // console.log(Object.keys(pins).length + 1);
 
+        console.log("setting pin again");
+        setPins(filtered[i.index]);
     }
+
 
   return (
   <>
   <div className="dogPinned">
-    { Object.keys(pins).length != 0  ?  < Pins newPin={pins} />
+    { Object.keys(pins).length !== 0  ?  < Pins newPin={pins} />
       : null
     }
    
   </div>
-    <h4>{lastItem} Results</h4><br/>
+    <h3 className='resultsText'>{lastItem} Results</h3><br/><br/>
       <div className="dogResults">
-        
-        {results.map((item, index) => (
+        {filtered.map((item, index) => (
               <div key={index} className="dogItem">
                 <div className='dogItem_topContainer'>
                   <div className='dogItem_pin'>
-                    <FontAwesomeIcon icon={faThumbtack} size="xl" name={index} onClick={()=> { handlePinClick({index})}}/> 
+                    <FontAwesomeIcon icon={faHeart} size="xl" name={index} onClick={()=> { handlePinClick({index})}}/> 
                   </div>
                   <div className="dogImageContainer">
-                      <img src={item.dogPic} className="dogImage"/><br/>
+                      <img src={item.dogPic} className="dogImage" alt={'Picture of ' + item.dogName}/><br/>
                     </div>
                  </div>
                     
                     <div className="dogInfo">
                       <span>{item.dogName}</span><br/>
-                      <a href={item.dogURL} alt={'Picture of ' + item.dogName}>More Info</a>
+                      <a href={item.dogURL} target='_blank' rel='noreferrer'>More Info</a>
                     </div>
               </div>
               
         ))}
-        {/* edit [0] out  later testing */}
+      
       </div>
     </>
   )

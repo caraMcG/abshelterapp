@@ -1,8 +1,12 @@
+.resultsText{
+   color:  #f95959; 
+}
+
 .dogResults{
     display:flex; 
     flex-flow: row wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
     margin: 0 40px 20px 40px;  
 }
 
@@ -13,12 +17,14 @@
     background-color: rgb(232,232,232);
     justify-content: center;
     border-radius: 5%;
-    box-shadow: 0 0 0 0.09px #639aa3;
+    box-shadow: 0 0 0 0.09px #f95959;;
 }
 
 .dogItem:hover{
     /* box-shadow: 8px 10px rgb(76, 130, 141); */
-    box-shadow: 8px 10px 0 0.09px #639aa3;
+    /* box-shadow: 8px 10px 0 0.09px #639aa3; */
+    box-shadow: 8px 10px 0 0.09px #f95959;
+    /* #455d7a; */
     transition: all 600ms cubic-bezier(0.57, 2.2, 0.26, 0.99);
     transform: scale(1.02);
 }
@@ -40,13 +46,11 @@
 }
 
 .dogItem_pin:hover{
-    /* style={{color: "black" }} */
-    color:blue;
+    color:#f95959;
+    cursor: pointer;
 }
 
 .dogImage{
-    /* width: 200px;
-    height:auto; */
     width: auto;
     height: 200px;
     border-radius: 5%;
