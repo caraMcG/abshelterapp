@@ -66,7 +66,14 @@ const Results = (props) => {
   const handleDeleteClick = i =>{
 
     //get original filtered results to find original position of profile
-    const endpointFilter = (results.filter((profile) => profile.shelterName.includes(endpoint)));
+    let endpointFilter =  [];
+
+    if(endpoint === 'dogs'){
+      endpointFilter = (results);
+    }
+    else{
+      endpointFilter = (results.filter((profile) => profile.shelterName.includes(endpoint)));
+    }
 
     //URL of the profile just removed from pins
     const urlToFind = pinned[i.index].dogURL;
