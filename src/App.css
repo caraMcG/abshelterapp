@@ -6,8 +6,7 @@
 }
 
 body{
-  /* background-color: var(--color-footer); */
-  /* background-color: rgb(119,177,186); */
+
   background-color: #233142;
   margin: 0  3rem 3rem 3rem;
   overflow-x: hidden;
@@ -22,27 +21,22 @@ body{
 .App h1{
   padding-top: 50px;
   font-size:100px;
-  /* color: var(--color-footer); */
-  /* color: #455d7a; */
   color: rgb(232,232,232);
 }
 
 .App h4, .App h4 a{
-  /* color: var(--color-footer); */
-  color: #455d7a;
-  font-weight: 500;
+  color: rgb(232,232,232);
+  font-weight: 300;
   padding-bottom: 5rem;
-  /* font-size:14px; */
 }
 
 .App h4 a:hover{
-  font-weight: bold;
+  color:#f95959;
 }
 
 
 /* DROPDOWN STYLES */
 .dropdown{
-  /* padding: 50px; */
   padding-bottom: 5rem;
 }
 
