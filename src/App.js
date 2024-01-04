@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaw } from "@fortawesome/free-solid-svg-icons";
 import { ReactComponent as AdoptedPic } from './assets/adopted-dog.svg';
-// import adoptedPic from './assets/adopted-dog.svg';
 
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
   const [selection, setSelection] = useState(''); 
   const [local, setLocal] = useState(false);
   const [localSave, setLocalSave] = useState([]);
-  // const imgNotFound = "assets/adopted-dog.svg";
   const [imgNotFoundFlags, setImgNotFoundFlags] = useState(Array(localSave.length).fill(false)); 
  
 
@@ -39,7 +37,7 @@ function App() {
       setLocalSave(localSave);
       setLocal(false); //resetting since we completed this prompt
     }
-    else{ //(i ==  0)
+    else{ 
       console.log("clearing local storage");
       localStorage.clear();
       setLocalSave([]);
@@ -83,17 +81,6 @@ function App() {
                                     setImgNotFoundFlags(newFlags)}
                                   }/>
                               }
-
-                                {/* <img src={imgNotFoundFlags[index] ? adoptedPic : item.dogPic} 
-                                  className="dogImage" 
-                                  alt={'Picture of ' + item.dogName} 
-                                  draggable="false" 
-                                  onError={()=> {
-                                    const newFlags = [...imgNotFoundFlags];
-                                    newFlags[index] = true;
-                                    setImgNotFoundFlags(newFlags)}
-                                  }/> */}
-
                                 <br/>
                                 </div>
                           </div>
