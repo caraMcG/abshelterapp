@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import './results.css'; 
 import Pins from '../pins/Pins';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -13,7 +12,7 @@ const Results = (props) => {
   const [filtered, setFiltered] = useState([]); //filtered results
   const [pinned, setPinned] = useState([]);   //Saved list of dogs
   const [loaded, setLoaded] = useState(false); //loaded all  data once
-  const lastItem = filtered.length;
+  const [loadedLastSave, setLoadedLastSave] = useState(false); //true = loaded last visit 
   const endpoint = props.endpoint;
 
   useEffect(() => {
@@ -26,30 +25,75 @@ const Results = (props) => {
             setLoaded(true);
             console.log("Data loaded");
 
+            // update pins based on last save
+            const exists = checkLastVisit(data);
+
+            //Check selected filter & map results
             if(endpoint === 'dogs'){
-              setFiltered(data);
+              const toSet = exists.length > 0 
+                            ? data.filter((profile) => !pinned.includes(profile) && !exists.includes(profile))
+                            : data.filter((profile) => !pinned.includes(profile));
+
+              setFiltered(toSet);
             }
             else{
-              console.log("Data filtered on load");
-              setFiltered(data.filter((profile) => profile.shelterName.includes(endpoint))); 
+              const toSet = exists.length > 0 
+                            ? data.filter((profile) => profile.shelterName.includes(endpoint) && !pinned.includes(profile) && !exists.includes(profile))
+                            : data.filter((profile) => profile.shelterName.includes(endpoint) && !pinned.includes(profile));
+
+              setFiltered(toSet);
             }
-      })()   
-       
+      })()       
     }
     else{
       if(endpoint === 'dogs'){
-
         setFiltered(results.filter((profile) => !pinned.includes(profile))); 
-
       }
-      ///endpoint is not all shelters
       else{
-
         setFiltered(results.filter((profile) => profile.shelterName.includes(endpoint) && !pinned.includes(profile)));
-      }
-    } 
-  }, [props]);
+      }     
+    }
+  }, [props.endpoint]);
 
+
+  function checkLastVisit(check){
+    let newData = [];
+    if(props.prevSave.length !== 0 && !loadedLastSave){
+      console.log("checking last visit");
+      const prevSave = props.prevSave;
+
+      //find if saved dog profiles still exist in results
+      const matching  = check.map((i1) => ({
+          dogName: i1.dogName,
+          dogURL: i1.dogURL,
+          dogPic: i1.dogPic,
+          shelterName: i1.shelterName,
+          match: prevSave.some((i2) => i2.dogURL === i1.dogURL),
+      }))
+
+      //filter out dog profiles that don't exist
+      const exists = matching.filter((i) => i.match !== false);
+      
+      //remove match property from existing profiles
+      for(let i=0; i < exists.length;i++){
+        delete exists[i].match;
+
+        //find location of each dog profile in the new data 
+        const prevToFind = exists[i].dogURL;
+        const prevLocation = check.findIndex( profile => profile.dogURL === prevToFind);
+
+        //load item into new variable
+        newData.push(check[prevLocation]);
+      }
+
+      //add existing dog profiles to pinned 
+      setPinned(newData);
+      
+      //confirm loaded last save is complete
+      setLoadedLastSave(true);
+    }
+    return newData; 
+  }
 
  //Add selected dog card to "pinned" and update filtered results for display 
   const handleAddClick = i =>{
@@ -59,6 +103,9 @@ const Results = (props) => {
 
       //remove from main results 
       setFiltered(filtered.filter((profile) => !profile.dogURL.includes(newFiltered.dogURL))); 
+
+      //add to localStorage for next return 
+      localStorage.setItem('savedDogs', JSON.stringify([...pinned,newFiltered]));
   };
 
 
@@ -86,35 +133,42 @@ const Results = (props) => {
 
     //remove from  pinned list
     const newUpdatedPins = pinned.filter((_,x) => x !== i.index);
-    setPinned(newUpdatedPins);
+    setPinned(newUpdatedPins);  
+
+    //remove from localstorage
+    localStorage.setItem('savedDogs', JSON.stringify(newUpdatedPins));
+
+    if(JSON.parse(localStorage.getItem('savedDogs')).length === 0){
+      localStorage.removeItem('savedDogs');
+    }
   };
 
 
 
   return (
   <>        
-  <div className="dogPinned">
-    { Object.keys(pinned).length !== 0  ?  < Pins setPinned={handleDeleteClick} pinned={pinned}/>
-      : null
-    }
-  </div>
+    <div className="dogPinned">
+      { Object.keys(pinned).length !== 0  ?  < Pins setPinned={handleDeleteClick} pinned={pinned}/>
+        : null
+      }
+    </div>
 
 
-  {!loaded ? <div className='loadingAnim'>
-                    <BeatLoader
-                      color= "#455d7a"
-                      loading= {!loaded}
-                      size={30}
-                      speedMultiplier={1}
-                      aria-label="Loading Spinner"
-                      data-testid="loader"
-                    />
-            </div>
-    : null} 
+    {!loaded && Object.keys(results).length === 0 ? <div className='loadingAnim'>
+                      <BeatLoader
+                        color= "#455d7a"
+                        loading= {!loaded}
+                        size={30}
+                        speedMultiplier={1}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                      />
+              </div>
+      : null} 
 
     {loaded ?  
           <div>
-                <h3 className='resultsText'>{lastItem} Results</h3><br/><br/>
+                <h3 className='resultsText'>{filtered.length} Results</h3><br/><br/>
     
             <div className="dogResults">
               {filtered.map((item, index) => (

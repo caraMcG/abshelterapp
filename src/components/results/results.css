@@ -13,8 +13,9 @@
 .dogResults{
     display:flex; 
     flex-flow: row wrap;
-    justify-content: center;
-    gap: 3rem;
+    justify-content: space-evenly;
+    gap: 1rem;
+    /* gap: 3rem; */
     margin: 0 40px 20px 40px;  
 }
 
@@ -26,7 +27,9 @@
     /* justify-content: center; */
     justify-content: flex-end;
     border-radius: 5%;
-    box-shadow: 4px 4px 0 0.09px #455d7a;
+    margin-bottom: 20px;
+    /* box-shadow: 0 0 0 0.09px #455d7a; */
+    box-shadow: 0  0 0 0.09px #f95959;
 }
 
 .dogItem:hover{
@@ -60,7 +63,7 @@
 }
 
 .pinHeart{
-    align-self:flex-start;
+    align-self: center;
 }
 
 .pinHeart:hover{
@@ -90,6 +93,24 @@
 }
 
 .dogInfo a:hover{
-    color: #233142;
+    color: #f95959;
+    font-weight: 500;
 }
   
+
+
+@media only screen and (max-width: 768px){
+    .dogResults{
+        justify-content: space-evenly;
+    }
+
+    .dogImageContainer{
+        height: auto;
+    }
+
+    .dogItem:hover{
+        box-shadow: 0px 0px 0 0px #f95959;
+        transition: none;
+        transform: none;
+    }
+}

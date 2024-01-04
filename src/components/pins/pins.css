@@ -2,7 +2,10 @@
     display:flex; 
     flex-flow: row wrap;
     justify-content: flex-start;
+    /* justify-content: space-evenly; */
     gap: 2rem;
+    margin-left: 20px;
+    margin-right: 20px;
     padding-bottom: 2rem;
 }
 
@@ -14,12 +17,11 @@
 .pinItem{
     display:flex;
     flex-flow: column;
-    border: 1px #ffffffa6 solid;
     background-color: rgb(232,232,232);
-    justify-content: center;
+    justify-content: flex-end;
     border-radius: 5%;
+    margin-bottom:20px;
 }
-
 
 .pinItem_topContainer{
     display:flex;
@@ -27,35 +29,98 @@
 }
 
 .pinImageContainer{
-    
-    padding: 0 20px 20px 20px;
-    flex: 1; 
-}
-
-
-.pinImage{
-    width: auto;
-    height: 120px;
-    border-radius: 5%;
+    display:flex;
+    align-self: flex-end;
+    height: 180px;
 }
 
 .pinItem_pin{
-    align-self: flex-end;
-    padding: 10px 10px 10px 10px;
- 
+    padding: 10px 10px 10px 10px; 
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
 }
 
-.pinItem_pin:hover{
-    color: red;
+.pinX{
+    align-self:flex-start;
+}
+
+.pinX:hover{
+    color:#f95959;
     cursor: pointer;
+}
+
+.pinImage{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
 }
 
 .pinInfo{
     align-self: center;
-    padding-bottom: 20px;
-
 }
 
-.dogPinned{
-    padding-bottom: 2rem;
+.pinInfo span{
+    font-weight: bold;
+}
+
+.pinInfo a{
+    color: #233142;
+}
+
+.pinInfo a:hover{
+    color: #f95959;
+    font-weight: 500;
+}
+
+.pinButtons{
+    display:  flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+#shareBtn{
+    background-color: #f95959;
+    color: black;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+}
+
+#saveBtn{
+    background-color: #f95959;
+    color: black;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+}
+
+
+@media only screen and (max-width: 768px){
+    .pinResults{
+        justify-content: space-evenly;
+        /* background-color: blue; */
+        flex-flow: row wrap;
+        gap: 1rem;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .pinImageContainer{
+        height: auto;
+    }
+
+    .pinItem{
+        width:40%;
+        height: auto;
+    }
+    .pinItem:hover{
+        box-shadow: 0px 0px 0 0px #f95959;
+        transition: none;
+        transform: none;
+    }
 }

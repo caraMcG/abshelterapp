@@ -16,13 +16,13 @@ code {
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap'); */
 
-:root {
-  /* --font-family: 'Roboto Condensed', sans-serif;
-  --font-title: 'Lobster', 'cursive';
-  --font-code: 'IBM Plex Mono', monospace; */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
 
-  --color-bg: #f9f9f9;
-  --color-menu: #1f1f1f;
-  --color-footer : #002f3d;
-  --color-footer2: rgb(36,156,200);
+
+
+:root {
+  /* --font-family: 'Roboto Condensed', sans-serif;*/
+  --font-title: 'Nunito', sans-serif;
+   /*  --font-code: 'IBM Plex Mono', monospace; */
+
 }
