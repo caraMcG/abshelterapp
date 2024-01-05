@@ -101,8 +101,8 @@ function App() {
 
      
         <div className="dropdown" onChange={handleSelection}>
-          <select className="shelterSelector" defaultValue="Please select an option">
-            <option value="" className='optionsbutton'>Please select an option</option>
+          <select className="shelterSelector" defaultValue={ {label:"Please select an option", value:"placeholder"}}>
+            <option value="" className='optionsbutton' disabled>Please select an option</option>
             <option value="aarcs" className='optionsbutton'>AARCS</option>
             <option value="pawsitive" className='optionsbutton'>Pawsitive Match</option>
             <option value="calgaryhumane" className='optionsbutton'>Calgary Humane Society</option>
