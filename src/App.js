@@ -96,13 +96,13 @@ function App() {
           <h3 id="descText">A simple app to help anyone go through all of the amazing dogs looking for their forever homes in Alberta.<br/>
             If you like a  dog or are interested to learn more, click that little heart on their card. This app will save them at the top of the page for you to come back to!
           </h3><br/><br/>
-          <h4>Please note that results on first selection may take a few minutes to load. <br/> If you're interested in this project feel free to checkout the github <a href="https://github.com/caraMcG/CalgaryShelterAPI" target="_blank">here</a>.
+          <h4>Please note that results on first selection may take a few minutes to load. <br/> If you're interested in this project feel free to checkout the github <a href="https://github.com/caraMcG/CalgaryShelterAPI" target="_blank" rel="noreferrer">here</a>.
           </h4>
 
      
         <div className="dropdown" onChange={handleSelection}>
-          <select className="shelterSelector" defaultValue={ {label:"Please select an option", value:"placeholder"}}>
-            <option value="" className='optionsbutton' disabled>Please select an option</option>
+          <select className="shelterSelector" defaultValue="Please select an option">
+            <option value="" className='optionsbutton' style={{visibility:'hidden'}}>Please select an option</option>
             <option value="aarcs" className='optionsbutton'>AARCS</option>
             <option value="pawsitive" className='optionsbutton'>Pawsitive Match</option>
             <option value="calgaryhumane" className='optionsbutton'>Calgary Humane Society</option>
