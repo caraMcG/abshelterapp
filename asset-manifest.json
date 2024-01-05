@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/abshelterapp/static/css/main.a4d30747.css",
-    "main.js": "/abshelterapp/static/js/main.773a697e.js",
+    "main.css": "/abshelterapp/static/css/main.1413e19a.css",
+    "main.js": "/abshelterapp/static/js/main.af7faacf.js",
     "static/media/adopted-dog.svg": "/abshelterapp/static/media/adopted-dog.db16c07b1dd9ee05be9149f7edc13067.svg",
     "index.html": "/abshelterapp/index.html",
-    "main.a4d30747.css.map": "/abshelterapp/static/css/main.a4d30747.css.map",
-    "main.773a697e.js.map": "/abshelterapp/static/js/main.773a697e.js.map"
+    "main.1413e19a.css.map": "/abshelterapp/static/css/main.1413e19a.css.map",
+    "main.af7faacf.js.map": "/abshelterapp/static/js/main.af7faacf.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4d30747.css",
-    "static/js/main.773a697e.js"
+    "static/css/main.1413e19a.css",
+    "static/js/main.af7faacf.js"
   ]
 }
