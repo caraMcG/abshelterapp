@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Select from 'react-select';
 import './App.css';
 import { Results } from './components'
 import { useState, useEffect } from 'react';
@@ -13,7 +14,13 @@ function App() {
   const [local, setLocal] = useState(false);
   const [localSave, setLocalSave] = useState([]);
   const [imgNotFoundFlags, setImgNotFoundFlags] = useState(Array(localSave.length).fill(false)); 
- 
+
+  const  shelters = [ 
+      { value: "aarcs", label:"AARCS"},
+      { value: "pawsitive", label:"Pawsitive Match"},
+      { value: "calgaryhumane", label:"Calgary Humane Society"},
+      { value: "dogs", label:"All Shelters"},
+    ];
 
   useEffect(() => {
 
@@ -27,8 +34,8 @@ function App() {
 
   }, []);
 
-  function handleSelection(event){
-      setSelection(event.target.value)
+  const handleSelection = e => {
+      setSelection(e.value)
     }
   
   function handleLocal(i){
@@ -93,22 +100,25 @@ function App() {
 
       { !local ? <div className='app_main'>
           <h1>Alberta Shelter App! <FontAwesomeIcon size="2xs" id="appPaw" icon={faPaw} /></h1><br/>
-          <h3 id="descText">A simple app to help anyone go through all of the amazing dogs looking for their forever homes in Alberta.<br/>
-            If you like a  dog or are interested to learn more, click that little heart on their card. This app will save them at the top of the page for you to come back to!
-          </h3><br/><br/>
-          <h4>Please note that results on first selection may take a few minutes to load. <br/> If you're interested in this project feel free to checkout the github <a href="https://github.com/caraMcG/CalgaryShelterAPI" target="_blank" rel="noreferrer">here</a>.
-          </h4>
-
-     
-        <div className="dropdown" onChange={handleSelection}>
-          <select className="shelterSelector" defaultValue="Please select an option">
-            <option value="" className='optionsbutton' style={{visibility:'hidden'}}>Please select an option</option>
-            <option value="aarcs" className='optionsbutton'>AARCS</option>
-            <option value="pawsitive" className='optionsbutton'>Pawsitive Match</option>
-            <option value="calgaryhumane" className='optionsbutton'>Calgary Humane Society</option>
-            <option value="dogs" className='optionsbutton'>All Shelters</option>
-          </select>
-        </div>  
+          
+          {!selection ? 
+            <><h3 id="descText">A simple app to help anyone go through all of the amazing dogs looking for their forever homes in Alberta.<br/>
+              If you like a  dog or are interested to learn more, click that little heart on their card. This app will save them at the top of the page for you to come back to!
+            </h3><br/><br/>
+            <h4>Please note that results on first selection may take a few minutes to load. <br/> If you're interested in this project feel free to checkout the github <a href="https://github.com/caraMcG/CalgaryShelterAPI" target="_blank" rel="noreferrer">here</a>.
+            </h4></>
+          :null}
+          
+          <div className="dropdown_container">
+              <div className="dropdown">
+                <Select 
+                  placeholder="Please select an option"
+                  onChange={handleSelection}
+                  options={shelters}
+                  classNamePrefix="dropdownOptions"
+                />
+              </div>   
+          </div>       
         </div>
       : null }
     

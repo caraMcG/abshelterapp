@@ -24,6 +24,11 @@ body{
   color: #455d7a;
 }
 
+.app_main{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .app_main h1{
   padding-top: 50px;
   font-size:100px;
@@ -34,7 +39,7 @@ body{
 .app_main h4{
   color: rgb(232,232,232);
   font-weight: 300;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
 }
 
 .app_main h4 a{
@@ -53,37 +58,28 @@ body{
 
 
 /* DROPDOWN STYLES */
+
+.dropdown_container{
+  display:flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
 .dropdown{
-  padding-bottom: 5rem;
-  
+  width: 20rem;
+  padding-bottom: 4rem;
+  font-weight: 500;
 }
 
-.shelterSelector{
-  border: 1px solid #e2eded;
-  border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
-  position: relative;
-  padding: 12px 14px;
-  background-color: #fff;
-  border-radius: 4px;
+.dropdownOptions__option.dropdownOptions__option--is-selected{
+  background-color: white;
+  color:#f95959;
+  font-weight: 700;
+}
+
+.dropdownOptions__option:hover {
   cursor: pointer;
-  /* font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif; */
-  font-size: 18px;
 }
-
-.shelterSelector:focus{
-  outline: 2px solid #f95959;
-  
-}
-
-.optionsbutton{
-  padding-top: 100px;
-}
-
-.dropdown select {
-  padding: 15px 18px;
-  
-}
-
 
 
 /* RETURNING VISIT W/ SAVES */

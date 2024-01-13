@@ -42,9 +42,9 @@ const Pins = ({setPinned, pinned }) => {
                 </div>
             ))}
         </div>
-        <div className='pinButtons'>
+        {/* <div className='pinButtons'>
             <button id="shareBtn">Share my picks!</button>
-        </div> 
+        </div>  */}
 
   </>
   )
