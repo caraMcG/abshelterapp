@@ -63,11 +63,11 @@ body{
   display:flex;
   justify-content: center;
   padding-top: 2rem;
+  padding-bottom: 4rem;
 }
 
 .dropdown{
   width: 20rem;
-  padding-bottom: 4rem;
   font-weight: 500;
 }
 
@@ -87,7 +87,7 @@ body{
   display: flex;
   flex-flow: column;
   justify-content: center;
-  width: 60%;
+  /* width: 60%; */
   align-self: center;
   gap: 1rem;
 }
@@ -96,8 +96,9 @@ body{
   display:flex;
   flex-flow:row wrap;
   justify-content: center;
-  padding-top:2rem;
+  padding-top:5rem;
   gap: 2rem;
+  margin: 0 40px 20px 40px
 }
 
 .app_returned h1{
@@ -110,17 +111,21 @@ body{
 .app_returned h4{
   color: rgb(232,232,232);
   font-weight: 300;
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
 }
 
 .app_returned Button{
   background-color: #455d7a;
-  /* font-weight:bold; */
+  font-weight: 600;
   font-size: medium;
   border: none;
   align-self: center;
-  width: 60%;
+  width: 20rem;
   padding: 14px 8px;
+}
+
+.app_returned Button:hover{
+  cursor: pointer;
 }
 
 
@@ -130,20 +135,20 @@ body{
     overflow-x: hidden;
   }
 
-  .App h1, .App h3,.App h4, .App .dropdown{
-    margin: 20px;
-  }
-
   .App h1{
-    font-size:40px;
+    font-size: 40px;
   }
 
-  .App h4{
+  .App #descText h4{
     display: none;
   }
 
   .App #descText{
     font-size: medium;
+  }
+
+  .app_returned h4{
+    padding-bottom: 2rem;
   }
 
 } 
