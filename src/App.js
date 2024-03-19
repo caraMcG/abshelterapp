@@ -67,14 +67,14 @@ function App() {
                               <div className='dogItem_pin'>
                                 <div className="dogInfo">
                                     <span>{item.dogName}</span><br/>
-                                    {imgNotFoundFlags[index] ? <br/>                                  
-                                    :  <a href={item.dogURL} 
-                                      target='_blank' 
-                                      rel='noreferrer'>More Info</a>}
                                 </div>
                               </div>
                             </div>
-      
+                            
+                            {imgNotFoundFlags[index] ? <br/>                                  
+                                    :  <a href={item.dogURL} 
+                                        target='_blank' 
+                                        rel='noreferrer'>
                             <div className="dogImageContainer">
                               {imgNotFoundFlags[index] ? <svg alt={item.dogName + ' has been adopted'}>< AdoptedPic/></svg>
                               :
@@ -90,6 +90,7 @@ function App() {
                               }
                                 <br/>
                                 </div>
+                              </a>}
                           </div>
                         
                         ))}
@@ -98,16 +99,16 @@ function App() {
                 
         :  null}
 
-      { !local ? <div className='app_main'>
-          <h1>Alberta Shelter App! <FontAwesomeIcon size="2xs" id="appPaw" icon={faPaw} /></h1><br/>
-          
+      { !local ? <div className='app_main'>      
+      <h1>Alberta Shelter App! <FontAwesomeIcon size="2xs" id="appPaw" icon={faPaw} /></h1>   <br/>
           {!selection ? 
-            <><h3 id="descText">A simple app to help anyone go through all of the amazing dogs looking for their forever homes in Alberta.<br/>
+            <> 
+            <h3 id="descText">A simple app to help anyone go through all of the amazing dogs looking for their forever homes in Alberta.<br/>
               If you like a  dog or are interested to learn more, click that little heart on their card. This app will save them at the top of the page for you to come back to!
             </h3><br/><br/>
             <h4 id="descText">Please note that results on first selection may take a few minutes to load. <br/> If you're interested in this project feel free to checkout the github <a href="https://github.com/caraMcG/CalgaryShelterAPI" target="_blank" rel="noreferrer">here</a>.
             </h4></>
-          :null}
+          :  ''}
 
           <div className="dropdown_container">
               <div className="dropdown">

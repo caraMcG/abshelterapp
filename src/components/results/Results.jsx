@@ -177,7 +177,7 @@ const Results = (props) => {
                         <div className='dogItem_pin'>
                           <div className="dogInfo">
                               <span>{item.dogName}</span><br/>
-                              <a href={item.dogURL} target='_blank' rel='noreferrer'>More Info</a>
+                              {/* <a href={item.dogURL} target='_blank' rel='noreferrer'>More Info</a> */}
                           </div>
                           
                           <div className='pinHeart' >
@@ -185,10 +185,11 @@ const Results = (props) => {
                           </div>
                         </div>
                       </div>
-
-                      <div className="dogImageContainer">
-                            <img src={item.dogPic} className="dogImage" alt={'Picture of ' + item.dogName} draggable="false"/><br/>
-                      </div>
+                      <a href={item.dogURL} target='_blank' rel='noreferrer' style={{textDecoration: "none"}} >
+                        <div className="dogImageContainer">
+                          <img src={item.dogPic} className="dogImage" alt={'Picture of ' + item.dogName} draggable="false"/><br/>
+                        </div>
+                      </a>
                     </div>
                 
                 ))}

@@ -1,0 +1,47 @@
+#shareBtn{
+  font-weight: bold;
+}
+
+#shareBtn:hover{
+    cursor:pointer;
+    background: #b94242;
+}
+
+.share-menu {
+    /* position:absolute; */
+    /* margin-top: 1px; */
+    z-index: 999;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+
+    opacity: 0;
+    transform: translateY(-10px); /* Start slightly above */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .share-menu.active {
+    opacity: 1;
+    transform: translateY(0); /* Move to its original position */
+  }
+
+  
+  .share-menu button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border: none;
+    background-color: transparent;
+    color: #333333;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .share-menu button:last-child {
+    margin-bottom: 0;
+  }
