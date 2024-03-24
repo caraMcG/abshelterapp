@@ -1,12 +1,12 @@
-*{
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
-     
+
 }
 
-body{
+body {
 
   background-color: #233142;
   /* margin: 0  3rem 3rem 3rem; */
@@ -15,65 +15,66 @@ body{
 
 .App {
   text-align: center;
-  display: flex; 
-  flex-flow:column wrap;
+  display: flex;
+  flex-flow: column wrap;
+  position: relative;
 }
 
-#appPaw{
+#appPaw {
   rotate: 25deg;
   color: #455d7a;
 }
 
-.app_main{
+.app_main {
   margin-left: 1rem;
   margin-right: 1rem;
 }
 
-.app_main h1{
+.app_main h1 {
   padding-top: 50px;
-  font-size:100px;
-  color: rgb(232,232,232);
+  font-size: 100px;
+  color: rgb(232, 232, 232);
   font-family: var(--font-title);
 }
 
-.app_main h4{
-  color: rgb(232,232,232);
+.app_main h4 {
+  color: rgb(232, 232, 232);
   font-weight: 300;
   padding-bottom: 3rem;
 }
 
-.app_main h4 a{
-  color: rgb(232,232,232);
+.app_main h4 a {
+  color: rgb(232, 232, 232);
   font-weight: 300;
 }
 
-#descText{
-  color: rgb(232,232,232);
+#descText {
+  color: rgb(232, 232, 232);
   font-weight: 300;
 }
 
-.app_main h4 a:hover{
-  color:#f95959;
+.app_main h4 a:hover {
+  color: #f95959;
 }
 
 
 /* DROPDOWN STYLES */
 
-.dropdown_container{
-  display:flex;
+.dropdown_container {
+  display: flex;
   justify-content: center;
   padding-top: 2rem;
   padding-bottom: 4rem;
 }
 
-.dropdown{
+.dropdown {
   width: 20rem;
   font-weight: 500;
 }
 
-.dropdownOptions__option.dropdownOptions__option--is-selected{
+.dropdownOptions__option.dropdownOptions__option--is-selected {
   background-color: white;
-  color:#f95959;
+  color: #f95959;
   font-weight: 700;
 }
 
@@ -92,29 +93,29 @@ body{
   gap: 1rem;
 }
 
-.app_returned_container{
-  display:flex;
-  flex-flow:row wrap;
+.app_returned_container {
+  display: flex;
+  flex-flow: row wrap;
   justify-content: center;
-  padding-top:5rem;
+  padding-top: 5rem;
   gap: 2rem;
   margin: 0 40px 20px 40px
 }
 
-.app_returned h1{
+.app_returned h1 {
   padding-top: 50px;
-  font-size:100px;
-  color: rgb(232,232,232);
+  font-size: 100px;
+  color: rgb(232, 232, 232);
   font-family: var(--font-title);
 }
 
-.app_returned h4{
-  color: rgb(232,232,232);
+.app_returned h4 {
+  color: rgb(232, 232, 232);
   font-weight: 300;
   padding-bottom: 2rem;
 }
 
-.app_returned Button{
+.app_returned Button {
   background-color: #455d7a;
   font-weight: 600;
   font-size: medium;
@@ -124,31 +125,53 @@ body{
   padding: 14px 8px;
 }
 
-.app_returned Button:hover{
+.app_returned Button:hover {
   cursor: pointer;
 }
 
+#to_top {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  background-color: #233142;
+  color: #fff;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  #to_top {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  #to_top {
+    display: block;
+  }
+}
 
 /* MOBILE PHONES */
-@media only screen and (max-width: 768px){
-  body{
+@media only screen and (max-width: 768px) {
+  body {
     overflow-x: hidden;
   }
 
-  .App h1{
+  .App h1 {
     font-size: 40px;
   }
 
-  .App #descText h4{
+  .App #descText h4 {
     display: none;
   }
 
-  .App #descText{
+  .App #descText {
     font-size: medium;
   }
 
-  .app_returned h4{
+  .app_returned h4 {
     padding-bottom: 2rem;
   }
 
-} 
+}
