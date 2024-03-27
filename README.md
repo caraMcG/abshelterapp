@@ -21,7 +21,29 @@ The corresponding backend API can be found on [GitHub](https://github.com/caraMc
 [![React-select-badge]][React-select-url]
 [![React-spinners-badge]][React-spinners-url]
 
-<!-- WRITE USAGE GUIDE HERE -->
+## User Guide
+
+### Selecting Shelters
+
+* Click the dropdown menu to select from one or all shelters. The app will load all dogs for the selected shelter(s).
+  
+![readme-gif1](https://github.com/katewar/abshelterapp/assets/164546224/39e8c92b-7849-47e2-a167-6cd9fbc655d5)
+
+### Selecting Favourites
+
+* Click on the ❤️ icon on a dog's card to add the dog to your **Favourites** list!
+* Click on the ❌ icon on a dog's card to remove them from your **Favourites** list.
+  
+![readme-gif2](https://github.com/katewar/abshelterapp/assets/164546224/b7ee4dfd-d5c6-421a-bc3a-587a9be10d4c)
+
+### Sharing Favourites
+
+* While you have any dogs in your **Favourites** list, you can share this list with others!
+    * **Clipboard Copy** saves a list of URLs of your favourite dogs to your device's clipboard.
+    * **Share via Email** opens your default email app with a prefilled draft template that includes the URLs to your favourite dogs.
+    * **Share via Text** opens your default email app with a prefilled draft template that includes the URLs to your favourite dogs. (mobile only)
+
+![readme-gif3](https://github.com/katewar/abshelterapp/assets/164546224/34a9e014-55a1-47d0-8e23-e14184adf084)
 
 ## Acknowledgements 
 
