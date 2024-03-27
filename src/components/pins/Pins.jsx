@@ -10,7 +10,7 @@ const Pins = ({setPinned, pinned }) => {
 
     const [ recentSelect, setrecentSelect ]  = useState([]);
     let pinurls = recentSelect.map(obj => obj.dogURL);
-    let urls = pinurls.toString().replace(/,/g, '\n');
+    let urls = pinurls.toString().replace(/,/g, ' \n');
     console.log(urls);
     
     useEffect(() => {
@@ -22,7 +22,7 @@ const Pins = ({setPinned, pinned }) => {
 
   return (
     <>
-    { recentSelect.length > 0 ? <span className='pinTitle'>My Favourites ❤</span>
+    { recentSelect.length > 0 ? <span className='pinTitle'>My Favourites ❤<br/><br/></span>
                         
     : null}
         <div className="pinResults">

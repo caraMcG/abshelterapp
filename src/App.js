@@ -54,7 +54,7 @@ function App() {
 
   useEffect(() => {
     const handleScrollButtonVisibility = () => {
-      window.pageYOffset > 300 ? setShowTopButton(true) : setShowTopButton(false);
+      window.scrollY > 300 ? setShowTopButton(true) : setShowTopButton(false);
     };
 
     window.addEventListener("scroll", handleScrollButtonVisibility);
@@ -132,7 +132,7 @@ function App() {
             <h3 id="descText">A simple app to help anyone go through all of the amazing dogs looking for their forever homes in Alberta.<br />
               If you like a  dog or are interested to learn more, click that little heart on their card. This app will save them at the top of the page for you to come back to!
             </h3><br /><br />
-            <h4 id="descText">Please note that results on first selection may take a few minutes to load. <br /> If you're interested in this project feel free to checkout the github <a href="https://github.com/caraMcG/CalgaryShelterAPI" target="_blank" rel="noreferrer">here</a>.
+            <h4 id="descText">Please note that results on first selection may take a few minutes to load. <br /> If you're interested in this project feel free to checkout the github <a href="https://github.com/caraMcG/abshelterapp" target="_blank" rel="noreferrer">here</a>.
             </h4></>
           : ''}
 

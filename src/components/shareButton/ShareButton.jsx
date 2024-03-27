@@ -6,7 +6,7 @@ const ShareButton = ({ defaultMessage }) => {
 
     const [showShareMenu, setShowShareMenu] = useState(false);
     const [copyButtonText, setCopyButtonText] = useState('Copy to Clipboard');
-    const signature = '❤ Shared from Alberta Shelter App 🐶'
+    const signature = 'Found via Alberta Shelter App ❤'
 
     const handleEmailShare = () => {
         window.location.href = `mailto:?subject=Check out my favourite dogs!&body=${encodeURIComponent('They\'re adorable and need a home:\n\n' + defaultMessage + '\n\n\n' + signature)}`;
@@ -26,7 +26,7 @@ const ShareButton = ({ defaultMessage }) => {
     };
      
     const handleTextShare = () => {
-        window.location.href = `sms:?body=Check out my favourite dogs! ${encodeURIComponent(defaultMessage + '\n\n\n' + signature)}`;
+        window.location.href = `sms:?body=Check out my favourite dogs! ${encodeURIComponent('\n\n' + defaultMessage + '\n\n\n' + signature)}`;
     };
 
     return (
