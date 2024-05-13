@@ -169,31 +169,33 @@ const Results = (props) => {
     {loaded ?  
           <div>
                 <h3 className='resultsText'>{filtered.length} Results</h3><br/><br/>
-    
-            <div className="dogResults">
-              {filtered.map((item, index) => (
-                    <div key={index} className="dogItem">
-                      <div className='dogItem_topContainer'>
-                        <div className='dogItem_pin'>
-                          <div className="dogInfo">
-                              <span>{item.dogName}</span><br/>
-                              {/* <a href={item.dogURL} target='_blank' rel='noreferrer'>More Info</a> */}
-                          </div>
-                          
-                          <div className='pinHeart' >
-                            <FontAwesomeIcon icon={faHeart} size="xl" name={index} onClick={()=> { handleAddClick({index})}}/> 
+            {filtered.length < 1 
+            ? <p style={{color:"white"}}>We are experiencing issues receiving data from this shelter, please try again later!</p>
+            : 
+              <div className="dogResults">
+                {filtered.map((item, index) => (
+                      <div key={index} className="dogItem">
+                        <div className='dogItem_topContainer'>
+                          <div className='dogItem_pin'>
+                            <div className="dogInfo">
+                                <span>{item.dogName}</span><br/>
+                                {/* <a href={item.dogURL} target='_blank' rel='noreferrer'>More Info</a> */}
+                            </div>
+                            
+                            <div className='pinHeart' >
+                              <FontAwesomeIcon icon={faHeart} size="xl" name={index} onClick={()=> { handleAddClick({index})}}/> 
+                            </div>
                           </div>
                         </div>
+                        <a href={item.dogURL} target='_blank' rel='noreferrer' style={{textDecoration: "none"}} >
+                          <div className="dogImageContainer">
+                            <img src={item.dogPic} className="dogImage" alt={'Picture of ' + item.dogName} draggable="false"/><br/>
+                          </div>
+                        </a>
                       </div>
-                      <a href={item.dogURL} target='_blank' rel='noreferrer' style={{textDecoration: "none"}} >
-                        <div className="dogImageContainer">
-                          <img src={item.dogPic} className="dogImage" alt={'Picture of ' + item.dogName} draggable="false"/><br/>
-                        </div>
-                      </a>
-                    </div>
-                
-                ))}
-            </div>
+                  ))}
+              </div>
+            }
           </div>
     : null}
        
